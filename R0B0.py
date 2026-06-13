@@ -63,12 +63,13 @@ def search_on_youtube(user_input):
         webbrowser.open(url)
     else:
         speak("What do you want to search on youtube")
+            
                      
 #---- Dictionary for conversations ----#    
 conversations = {
     "hello": "Hi there! How can I help you?",
     "how are you": "I am feeling like a collection of a perfect code.",
-    "who are you": "I am R0B0, your personal assistent.",
+    "who are you": "I am R0B0, your personal assistant.",
     "what are you doing": "I am waiting for your next command.",
     "how do you feel": "I am operating at maximum speed! All my systems are green.",
     "do a trick": "I can't jump, but I can pull a joke or search Wikipedia faster than anyone else here",
@@ -83,12 +84,16 @@ while activity == True:
     if user_input == "" or "quiet" in user_input:
         time.sleep(0.1)
         continue
-    if "rocket assistant" in user_input:
-        speak("I'm listening...")
-        user_input = listen().lower()
-        if user_input == "":
-            time.sleep(0.1)
-            continue 
+    if wake_word not in user_input:
+       time.sleep(0.1)
+       continue
+    user_input = user_input.replace(wake_word, "").strip()
+    if user_input == "":
+            speak("I'm listening")
+            user_input = listen().lower()
+            if user_input == "":
+                time.sleep(0.1)
+                continue 
     if user_input in conversations:
         speak(conversations[user_input])
     elif user_input == "speak":
