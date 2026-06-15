@@ -5,6 +5,9 @@ on:
     types: [published]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -17,7 +20,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.14'  
+          python-version: '3.12'  
 
       - name: Install dependencies
         run: |
@@ -33,6 +36,7 @@ jobs:
 
       - name: Upload Binaries to Release
         uses: softprops/action-gh-release@v2
+        if: github.event_name == 'release'
         with:
           files: dist/*
         env:
