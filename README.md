@@ -2,6 +2,7 @@
 R0B0
 An assistant that does the boring stuff on your computer and keeps you entertained.
 ## How to install it:
+### Option A: Manual installation
 ### 1. Download Python (if you don't have it installed). 
 * **For Windows:** go to the official site (python.org),download the latest stable version,double click the downloaded file,select "add python.exe to path" then click on "install now".
 * **For macOS:** go to the python page for mac and download the universal installer, open the installer and follow the universal steps of installation pressing "continue".
@@ -25,6 +26,18 @@ pip install pyttsx3 sounddevice scipy wikipedia pyjokes simpleeval SpeechRecogni
 Copy the code from `R0B0.py` and save it into a file named `main.py` or any name ending in .py, open your terminal, navigate to the folder where you saved the file using the command `cd` (e.g: `cd myfolder`) then run the script using Python 
 ```bash
 python main.py
+```
+### Option B: Use the pre-built demo
+* Go to the **Releases** section on the right side of this repository
+* Download the `R0B0-demo.zip` file from the latest release
+* Extract the ZIP file into a new folder on your computer
+* Open your terminal or command prompt, navigate to that folder `cd path/to/folder` and install the dependencies:
+  ```bash
+  pip install pyttsx3 sounddevice scipy wikipedia pyjokes simpleeval SpeechRecognition
+  ```
+* Run the assistant instantly:
+ ```bash
+python R0B0.py
 ```
 ## Here are some R0B0's features:
 * making folders
